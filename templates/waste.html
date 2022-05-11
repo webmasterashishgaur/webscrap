@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    
+    <title>scrapping</title>
+    <link href="https://www.bing.com/images/blob?bcid=r-minO-FnAQE0A" type="image/x-icon" rel="icon"/>
+    <link href="https://www.bing.com/images/blob?bcid=r-minO-FnAQE0A" type="image/x-icon" rel="shortcut icon"/>   
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <body style="background-size:cover"  background="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80" >
+    </body>
+
+      <style>
+        table {
+            border-collapse: collapse;
+            background: white;
+            color: black;
+        }
+          
+        th,
+        td {
+            font-weight: bold;
+        }
+      </style>
+  </head>
+  <body>
+    {% if user.is_authenticated %} 
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="container-fluid">
+        
+        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+        
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="logout">logout</a>
+              </li>
+            
+            <h4 style="color:LightGray; padding-left:20px;">Hello, {{user.first_name}}</h4>
+            {%endif%}
+                       
+        </div>
+      </div>
+    </nav>
+    
+
+
+    <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown link
+        </a>
+      
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="scrapzoom">Zoom</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+
+
+
+
+
+
+      <h4 style="color:LightGray; border-left-width: 450px;margin-left: 540px;margin-top: 50px;">Choose Website</h4>
+      <select class="form-select " id="web"   aria-label="Default select example" style="margin-left: 540px;border-left-width: 1px;padding-right: 90px;margin-right: 0px;border-right-width: 1px;width: 249px; background-color:LightSkyBlue;">
+        <option selected href='scrapzoom' >Select</option>
+        <option value="0">Zoom</option>
+        <option value="1">Revv</option>
+      </select>
+      
+
+      <div id="zoomState" style="display:none">
+      <h4 style="color:LightGray; border-left-width: 450px;margin-left: 540px;margin-top: 20px;">Choose State</h4>
+      <select class="form-select " id="zoom_state"  aria-label="Default select example" style="margin-left: 540px;width: 250px;border-left-width: 1px;padding-right: 90px; background-color:LightSkyBlue;">
+        <option selected >Select</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Pune">Pune</option>
+        <option value="Delhi Ncr">Delhi Ncr</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="chandigarh">chandigarh</option>
+        <option value="Kolkata">Kolkata</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Coimbatore">Coimbatore</option>
+        <option value="Indore">Indore</option>
+        <option value="Jaipur">Jaipur</option>
+        <option value="Mangalore">Mangalore</option>
+        <option value="Mysore">Mysore</option>
+        <option value="Vizag">Vizag</option>
+        <option value="Goa">Goa</option>
+        <option value="Nagpur">Nagpur</option>
+        <option value="Kochi">Kochi</option>
+        <option value="Vijayawada">Vijayawada</option>
+        <option value="Siliguri">Siliguri</option>
+        <option value="Bhopal">Bhopal</option>
+        <option value="Lucknow">Lucknow</option>
+        <option value="Guwahti">Guwahti</option>
+        <option value="Bhubaneswar">Bhubaneswar</option>
+        <option value="Vadodara">Vadodara</option>
+        <option value="Ranchi">Ranchi</option>
+        <option value="Raipur">Raipur</option>
+        <option value="Nashik">Nashik</option>
+        <option value="Hubli">Hubli</option>
+        <option value="Calicut">Calicut</option>
+        <option value="Udupi-Manipal">Udupi-Manipal</option>
+        <option value="Trichy">Trichy</option>
+        <option value="Madurai">Madurai</option>
+      </select>
+    </div>
+
+
+
+    <div id="revvState" style="display:none">
+      <h2 style="color:LightGray; border-left-width: 450px;margin-left: 550px;margin-top: 20px;">Choose State</h2>
+            <select class="form-select " id="revv_state"  aria-label="Default select example" style="margin-left: 540px;width: 250px;border-left-width: 1px;padding-right: 90px; background-color:LightSkyBlue;">
+              <option selected >Select</option>
+              <option value="1">Bangalore</option>
+              <option value="2">Pune</option>
+              <option value="3">Delhi Ncr</option>
+              <option value="4">Mumbai</option>
+              <option value="5">Chennai</option>
+              <option value="6">Hyderabad</option>
+              <option value="7">chandigarh</option>
+              <option value="8">Kolkata</option>
+              <option value="9">Ahmedabad</option>
+              <option value="10">Coimbatore</option>
+              <option value="12">Jaipur</option>
+              <option value="13">Mangalore</option>
+              <option value="14">Mysore</option>
+              <option value="15">Vizag</option>
+              <option value="17">Nagpur</option>
+              <option value="18">Kochi</option>
+              <option value="19">Vijayawada</option>
+              <option value="24">Bhubaneswar</option>
+              <option value="25">Vadodara</option>
+              <option value="34">Surat</option>
+              <option value="35">Tirupati</option>
+              <option value="36">Trivandrum</option>
+           </select>
+          </div>
+
+      <div id="zoomCity" style="display:none">
+      <h4 style="color:LightGray; border-left-width: 450px;margin-left: 540px;margin-top: 20px;">Choose City</h4>
+      <div class="input-group flex-nowrap">
+        <input type="text" class="form-control" id="zoom_city" placeholder="City" aria-label="City" aria-describedby="addon-wrapping" style="margin-left: 540px;width: 304px;padding-right: 12px;margin-right: 575px; background-color:LightSkyBlue;">
+      </div></div>
+
+
+      <div> 
+      <h4 style="color:LightGray; border-left-width: 450px;margin-left: 540px;margin-top: 20px; ">Choose Starting Date</h4>
+      <div style="background-color:LightSkyBlue; border-left-width:500px; margin-left:540px; width:250px;">
+       <input id="startdatepicker"  width="240" />
+       <script>
+        var date=$('#startdatepicker').datepicker({dateFormat:'dd/mm/yy'});
+       </script>
+      </div>
+      <br>
+      <h4 style="color:LightGray; border-left-width: 450px;margin-left: 540px;margin-top: 20px;">Choose End Date</h4>
+      <div style="background-color:LightSkyBlue; border-left-width:500px; margin-left:540px; width:250px;">
+       <input id="enddatepicker"  width="240" />
+       <script>
+        var date=$('#enddatepicker').datepicker({dateFormat:'dd/mm/yy'});
+        
+       </script>
+      </div>
+    </div>
+
+
+
+      
+      <br>
+      <button class="btn btn-primary" type="button" id="submitbtn" style="margin-left: 540px;padding-right: 110px;padding-left: 90px;">Button</button>
+
+
+      <script>
+        var seletedSite = 0; 
+        var statezoom ="";
+        var cityzoom = "";
+        var staterevv = "";
+          $(function(){
+            $("#web").on("change",function(e){
+              if(this.value == 0){
+                $("#zoomState").show();
+                $("#revvState").hide();
+                $("#zoomCity").show();
+                seletedSite = 1;
+              }else{
+                $("#zoomState").hide();
+                $("#revvState").show();
+                $("#zoomCity").hide();
+                seletedSite = 2;
+              }
+            });
+  
+            $("#zoom_state").on("change",function(e){
+              statezoom = this.value;
+            });
+  
+            $("#zoomCity").on("keypress",function(e){
+              cityzoom = this.value;
+            });
+  
+            $("#revv_state").on("change",function(e){
+              cityrevv = this.value;
+            });
+  
+  
+  
+          });
+  
+          $(function(){
+            $("#submitbtn").on("click",function()
+            {
+             
+                if(seletedSite == 0){
+                    alert("Please select your site first.");
+                    return;
+                }else
+                if(statezoom == ""){
+                  alert("Please select your state first.");
+                  return;
+               }else
+                if(cityzoom == ""){
+                    alert("Please select your city first.");
+                     return;
+                }else
+                if(saterevv == ""){
+                    alert("Please select your state first.");
+                     return;
+                }
+  
+                
+                if(seletedSite == 1){
+                  // all cases for zoom
+  
+  
+  
+  
+                  $(location).attr("href", "scrapzoom?StateName="+statezoom+"&CityName="+cityzoom);
+                }else if(seletedSite == 2){
+                    // all cases for revv
+                    
+                }
+            });
+          })
+
+
+   
+   
+      
+  </body>
+</html>
